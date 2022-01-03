@@ -1,0 +1,36 @@
+## Docker commands used to build the application 
+docker build -t melostbr/techtrends . 
+
+## Docker commands used to run the application
+docker run -d -p 7111:3111 --name techtrends techtrend
+
+## Docker commands used to get the application logs
+docker logs -t techtrends
+# OR if you want to "follow" the logs
+docker logs -ft techtrends
+
+## Logs from the container running the TechTrends application
+2022-01-03T01:47:08.755349126Z  * Serving Flask app "app" (lazy loading)
+2022-01-03T01:47:08.755408769Z  * Environment: production
+2022-01-03T01:47:08.755412817Z    WARNING: This is a development server. Do not use it in a production deployment.
+2022-01-03T01:47:08.755418428Z    Use a production WSGI server instead.
+2022-01-03T01:47:08.755421354Z  * Debug mode: on
+2022-01-03T01:47:08.761855803Z INFO:werkzeug - - [2022-01-03 01:47:08,761]  * Running on http://0.0.0.0:3111/ (Press CTRL+C to quit)
+2022-01-03T01:47:08.762358762Z INFO:werkzeug - - [2022-01-03 01:47:08,762]  * Restarting with stat
+2022-01-03T01:47:08.891902744Z WARNING:werkzeug - - [2022-01-03 01:47:08,891]  * Debugger is active!
+2022-01-03T01:47:08.892918164Z INFO:werkzeug - - [2022-01-03 01:47:08,892]  * Debugger PIN: 309-975-253
+2022-01-03T01:47:28.594942980Z INFO:werkzeug - - [2022-01-03 01:47:28,594] 172.17.0.1 - - [03/Jan/2022 01:47:28] "GET / HTTP/1.1" 200 -
+2022-01-03T01:47:35.887284958Z [2022-01-03 01:47:35,886] INFO in app: Article "Kubernetes v1.20 Release Notes" retrieved!
+2022-01-03T01:47:35.887510983Z INFO:app - - [2022-01-03 01:47:35,886] Article "Kubernetes v1.20 Release Notes" retrieved!
+2022-01-03T01:47:35.895290352Z INFO:werkzeug - - [2022-01-03 01:47:35,894] 172.17.0.1 - - [03/Jan/2022 01:47:35] "GET /3 HTTP/1.1" 200 -
+2022-01-03T01:47:42.354893323Z [2022-01-03 01:47:42,354] INFO in app: A non-existing article was requested, id 100
+2022-01-03T01:47:42.354970017Z INFO:app - - [2022-01-03 01:47:42,354] A non-existing article was requested, id 100
+2022-01-03T01:47:42.360229616Z INFO:werkzeug - - [2022-01-03 01:47:42,359] 172.17.0.1 - - [03/Jan/2022 01:47:42] "GET /100 HTTP/1.1" 404 -
+2022-01-03T01:47:45.399941615Z [2022-01-03 01:47:45,399] INFO in app: "Aboout US" page retrieved!
+2022-01-03T01:47:45.400567327Z INFO:app - - [2022-01-03 01:47:45,399] "Aboout US" page retrieved!
+2022-01-03T01:47:45.406112592Z INFO:werkzeug - - [2022-01-03 01:47:45,405] 172.17.0.1 - - [03/Jan/2022 01:47:45] "GET /about HTTP/1.1" 200 -
+2022-01-03T01:47:46.549840255Z INFO:werkzeug - - [2022-01-03 01:47:46,549] 172.17.0.1 - - [03/Jan/2022 01:47:46] "GET /create HTTP/1.1" 200 -
+2022-01-03T01:47:52.554118603Z [2022-01-03 01:47:52,553] INFO in app: A new article was created! Title: "test"
+2022-01-03T01:47:52.554132146Z INFO:app - - [2022-01-03 01:47:52,553] A new article was created! Title: "test"
+2022-01-03T01:47:52.555399217Z INFO:werkzeug - - [2022-01-03 01:47:52,554] 172.17.0.1 - - [03/Jan/2022 01:47:52] "POST /create HTTP/1.1" 302 -
+2022-01-03T01:47:52.563475730Z INFO:werkzeug - - [2022-01-03 01:47:52,563] 172.17.0.1 - - [03/Jan/2022 01:47:52] "GET / HTTP/1.1" 200 -
