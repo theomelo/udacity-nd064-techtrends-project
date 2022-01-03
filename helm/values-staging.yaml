@@ -1,0 +1,11 @@
+namespace:
+  name: staging
+deploy:
+  replicaCount: 3
+service:
+  port: 5111
+image:
+  resources:
+    requests:
+      memory: 90Mi
+      cpu: 300m
