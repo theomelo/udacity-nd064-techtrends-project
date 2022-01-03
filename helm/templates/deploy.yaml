@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: {{ .Values.image.repository }}
-          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          image: melostbr/{{ .Values.image.repository }}:{{ .Values.image.tag }}
           imagePullPolicy:  {{ .Values.image.pullPolicy }}
           ports:
           - containerPort: {{ .Values.image.containerPort }}
@@ -37,5 +37,5 @@ spec:
               memory: {{ .Values.image.resources.limits.memory }}
               cpu:  {{ .Values.image.resources.limits.cpu }}
       imagePullSecrets:
-        - name: dockerhub-secret
+      - name: dockerhub-secret
       
