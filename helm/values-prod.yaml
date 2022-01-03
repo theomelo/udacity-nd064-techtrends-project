@@ -5,7 +5,6 @@ deploy:
 service:
   port: 7111
 image:
-  pullPolicy: Always
   resources:
     requests:
       memory: 128Mi
