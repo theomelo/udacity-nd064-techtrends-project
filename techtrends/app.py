@@ -109,9 +109,13 @@ def create():
 # Application health check
 @app.route('/healthz')
 def health_check():
-    response = { 'result': 'OK - healthy' }
-    return jsonify(response), 200
-
+    try:
+        get_all_posts()
+        response = { 'result': 'OK - healthy' }
+        return jsonify(response), 200
+    except sqlite3.OperationalError:
+        response = { 'result': 'ERROR - unhealthy' }
+        return jsonify(response), 500
 
 # Application metrics
 @app.route('/metrics')
