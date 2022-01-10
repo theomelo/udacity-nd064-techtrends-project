@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: techtrends
+  name: {{ .Values.app.name }}
   namespace: {{ .Values.namespace.name }}
   labels:
-    app: techtrends 
+    app: {{ .Values.app.name }} 
 spec:
   replicas: {{ .Values.deploy.replicaCount }}
   selector:
     matchLabels:
-      app: techtrends
+      app: {{ .Values.app.name }}
   template:
     metadata:
       labels:
-        app: techtrends
+        app: {{ .Values.app.name }}
     spec:
       containers:
         - name: {{ .Values.image.repository }}

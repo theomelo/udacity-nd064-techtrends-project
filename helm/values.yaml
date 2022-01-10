@@ -1,3 +1,5 @@
+app:
+  name: techtrends
 namespace:
   name: sandbox
 deploy:
