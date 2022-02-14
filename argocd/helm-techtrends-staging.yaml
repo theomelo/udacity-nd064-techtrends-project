@@ -8,7 +8,6 @@ spec:
     helm:
       valueFiles:
         - "values-staging.yaml"
-        - "dockerhub-secret.yaml"
     repoURL: https://github.com/theomelo/udacity-nd064-techtrends-project
     path: "helm"
     targetRevision: "HEAD"

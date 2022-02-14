@@ -1,2 +1,5 @@
 techtrends/venv
 techtrends/__pycache__
+
+# OSX
+.DS_Store
