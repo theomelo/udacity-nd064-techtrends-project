@@ -10,10 +10,16 @@ service:
   protocol: TCP
   type: ClusterIP
 image:
-  repository: techtrends
-  tag: latest
+  name: techtrends
+  repository: melostbr/techtrends:latest
   containerPort: 3111
   pullPolicy: IfNotPresent
+  readinessProbe:
+    httpGet:
+      path: /healthz
+  livenessProbe:
+    httpGet:
+      path: /healthz
   resources:
     requests:
       memory: 64Mi

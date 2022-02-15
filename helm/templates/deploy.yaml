@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.app.name }}
   namespace: {{ .Values.namespace.name }}
   labels:
-    app: {{ .Values.app.name }} 
+    app: {{ .Values.app.name }}
 spec:
   replicas: {{ .Values.deploy.replicaCount }}
   selector:
@@ -16,18 +16,18 @@ spec:
         app: {{ .Values.app.name }}
     spec:
       containers:
-        - name: {{ .Values.image.repository }}
-          image: melostbr/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+        - name: {{ .Values.image.name }}
+          image: {{ .Values.image.repository }}
           imagePullPolicy:  {{ .Values.image.pullPolicy }}
           ports:
           - containerPort: {{ .Values.image.containerPort }}
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: {{ .Values.image.readinessProbe.httpGet.path  }}
               port: {{ .Values.image.containerPort }}
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: {{ .Values.image.livenessProbe.httpGet.path  }}
               port: {{ .Values.image.containerPort }}
           resources:
             requests:
@@ -38,4 +38,4 @@ spec:
               cpu:  {{ .Values.image.resources.limits.cpu }}
       imagePullSecrets:
       - name: dockerhub-secret
-      
+
